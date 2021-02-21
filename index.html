@@ -13,9 +13,37 @@
 <body>
   <img style="z-index: 0" src="https://res.cloudinary.com/codelifings/image/upload/v1613358205/Tak_berjudul41_mnu1wt.jpg" alt="bca mobile">
   <div style="position: absolute; z-index: 1; font-family: 'Roboto', sans-serif;">
-    <a href="input.html" style="position: absolute; margin-top: -150px; left: -50px; width: 100px; top: -10px;">m-BCA</a>
+    <a style="position: absolute; margin-top: -150px; left: -50px; width: 100px; top: -10px;" data-toggle="modal" data-target="#exampleModal">m-BCA</a>
     <a href="https://m.klikbca.com/login.jsp" style="position: absolute; top: -80px; left: -50px">KlikBCA</a>
     <a href="https://www.bca.co.id/promo?i=ddbccf03bb349e45f699f1a396a55b023a185b815ccfb33c1166015b462ffe85" style="position: absolute; width: 150px; left: -50px">Info BCA</a>
   </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
