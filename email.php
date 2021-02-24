@@ -36,7 +36,6 @@ if ($sent) {
 </html>
 <?php
 }
-?>
 
 
  ?>
